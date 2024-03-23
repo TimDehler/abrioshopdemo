@@ -1,38 +1,142 @@
-.App {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+.centered {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.productContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 1.2rem;
+  background-color: pink;
+  border-radius: 25px;
+}
+
+.productContainer:not(.productQuantity):not(.productImage) * {
+  width: 100%;
+}
+
+.productContainer h1 {
+  text-align: center;
+}
+
+.productQuantity {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+}
+
+.productQuantityManipulation {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: green;
+  border-radius: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.productQuantity input {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.productImage {
+  width: 100px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productViewContainer {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 10rem 1rem 10rem;
+  height: 65%;
+  max-height: 65%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 1200px) {
+  .productViewContainer {
+    grid-template-columns: repeat(1, 1fr);
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.basketContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 20%;
+}
+
+.basketContainer h1 {
+  width: 100%;
+  height: 10%;
+}
+
+.basketProducts {
+  width: 60%;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.basketProducts div {
+  width: 100%;
+}
+
+.basketSum {
+  width: 40%;
+  height: 90%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: end;
+  padding-bottom: 2rem;
+  padding-right: 0.5rem;
+}
+
+.basketSum h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.basketProductContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.headerContainer {
+  height: 15%;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
