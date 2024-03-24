@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/abrioshopdemo/static/css/main.d0075519.css",
-    "main.js": "/abrioshopdemo/static/js/main.2a1cfa2e.js",
+    "main.css": "/abrioshopdemo/static/css/main.9ccabcd0.css",
+    "main.js": "/abrioshopdemo/static/js/main.33bb486c.js",
     "index.html": "/abrioshopdemo/index.html",
-    "main.d0075519.css.map": "/abrioshopdemo/static/css/main.d0075519.css.map",
-    "main.2a1cfa2e.js.map": "/abrioshopdemo/static/js/main.2a1cfa2e.js.map"
+    "main.9ccabcd0.css.map": "/abrioshopdemo/static/css/main.9ccabcd0.css.map",
+    "main.33bb486c.js.map": "/abrioshopdemo/static/js/main.33bb486c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0075519.css",
-    "static/js/main.2a1cfa2e.js"
+    "static/css/main.9ccabcd0.css",
+    "static/js/main.33bb486c.js"
   ]
 }
