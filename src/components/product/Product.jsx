@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getColor } from "../../util/ColorConverter";
 import { useBasketStore, useProductStore } from "../../store/store";
 import BasketProduct from "../../classes/BasketProduct";
@@ -17,6 +17,11 @@ function Product({ titel, farbe, kategorie, lagerbestand, preis }) {
     }
   };
 
+  useEffect(() => {
+    if (parseInt(lagerbestand) < produktAnzahl)
+      setProduktAnzahl(parseInt(lagerbestand));
+  }, [setProduktAnzahl, lagerbestand, produktAnzahl]);
+
   const handleAddToCart = () => {
     addBasketProduct(
       new BasketProduct(
@@ -32,7 +37,11 @@ function Product({ titel, farbe, kategorie, lagerbestand, preis }) {
   };
 
   return (
-    <div key={titel} className={"productContainer"}>
+    <div
+      style={{ opacity: parseInt(lagerbestand) === 0 ? 0.2 : 1 }}
+      key={titel}
+      className={"productContainer"}
+    >
       <div
         className="productImage"
         style={{ backgroundColor: getColor(farbe) }}
@@ -43,6 +52,7 @@ function Product({ titel, farbe, kategorie, lagerbestand, preis }) {
 
       <div className="productQuantityManipulation">
         <button
+          disabled={parseInt(lagerbestand) === 0 ? true : false}
           className="leftButton"
           onClick={() => handleProduktAnzahlChange("-")}
         >
@@ -50,6 +60,7 @@ function Product({ titel, farbe, kategorie, lagerbestand, preis }) {
         </button>
         <div className="quantityBox centered">{produktAnzahl}</div>
         <button
+          disabled={parseInt(lagerbestand) === 0 ? true : false}
           className="rightButton"
           onClick={() => handleProduktAnzahlChange("+")}
         >
@@ -58,7 +69,11 @@ function Product({ titel, farbe, kategorie, lagerbestand, preis }) {
       </div>
       <h3 className="centered">Noch {lagerbestand}x verfügbar</h3>
 
-      <button onClick={() => handleAddToCart()} className="addToBasket">
+      <button
+        disabled={parseInt(lagerbestand) === 0 ? true : false}
+        onClick={() => handleAddToCart()}
+        className="addToBasket"
+      >
         <h3 className="centered">{preis.toString() + "€"}</h3>
         <svg
           xmlns="http://www.w3.org/2000/svg"
