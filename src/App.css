@@ -40,6 +40,7 @@
 .productQuantityManipulation {
   display: flex;
   justify-content: center;
+  height: 30px;
   align-items: center;
   margin-bottom: 0.5rem;
   border: 2px outset black;
@@ -109,11 +110,12 @@
   justify-content: center;
   align-items: center;
   padding: 1rem 15rem 1rem 15rem;
-  height: 65%;
-  max-height: 65%;
+  height: 69%;
+  max-height: 69%;
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  background-color: #fffff0;
 }
 
 .productViewContainer::-webkit-scrollbar {
@@ -137,7 +139,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  height: 20%;
+  height: 17%;
   padding: 2rem;
   background: linear-gradient(to bottom, rgb(41, 187, 72), rgb(25, 100, 41));
   color: rgb(255, 255, 255);
@@ -199,7 +201,7 @@
 }
 
 .filterContainer {
-  height: 8%;
+  height: 7%;
   background: linear-gradient(to bottom, rgb(36, 150, 61), rgb(41, 187, 72));
   color: white;
   text-shadow: 2px 2px rgb(93, 80, 80);
@@ -241,7 +243,7 @@ input[type="checkbox"] {
 }
 
 header {
-  max-height: 7%;
+  height: 7%;
   padding: 1.5rem 2rem 0rem 2rem;
   color: white;
   background: linear-gradient(to bottom, rgb(25, 100, 41), rgb(36, 150, 61));
@@ -255,5 +257,38 @@ header {
 }
 
 /* Header breakpoint for filters */
-@media screen and (max-width: 650) {
+@media screen and (max-width: 650px) {
+}
+
+/* Basket Font size breakpoint */
+@media screen and (max-width: 550px) {
+  .basketContainer {
+    padding: 1rem;
+  }
+
+  .basketContainer h1 {
+    font-size: 22px;
+  }
+
+  .basketProductContainer {
+    font-size: smaller;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .basketContainer {
+    padding: 0.5rem;
+  }
+
+  .basketContainer h1 {
+    font-size: 20px;
+  }
+
+  .basketProductContainer {
+    font-size: 12px;
+  }
+}
+
+/* Abrio Shop demo breakpoint for page title */
+@media screen and (max-width: 480px) {
 }
