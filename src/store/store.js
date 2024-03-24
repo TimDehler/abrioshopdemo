@@ -30,7 +30,8 @@ export const useBasketStore = create((set) => ({
       if (existingProductIndex !== -1) {
         const updatedBasketProducts = [...state.basketProducts];
         updatedBasketProducts[existingProductIndex].setAnzahl(
-          updatedBasketProducts[existingProductIndex].getAnzahl() + 1
+          updatedBasketProducts[existingProductIndex].getAnzahl() +
+            newBasketProduct.getAnzahl()
         );
         return { basketProducts: updatedBasketProducts };
       }
