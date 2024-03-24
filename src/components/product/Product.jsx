@@ -20,6 +20,7 @@ function Product({ titel, farbe, kategorie, lagerbestand, preis }) {
   useEffect(() => {
     if (parseInt(lagerbestand) < produktAnzahl)
       setProduktAnzahl(parseInt(lagerbestand));
+    if (produktAnzahl === 0 && lagerbestand >= 1) setProduktAnzahl(1);
   }, [setProduktAnzahl, lagerbestand, produktAnzahl]);
 
   const handleAddToCart = () => {
