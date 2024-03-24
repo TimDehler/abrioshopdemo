@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSortingStore } from "../../store/store";
 
-function PriceSorting() {
+function App() {
+  const [selectedSort, setSelectedSort] = useState("");
   const { setPriceSorting } = useSortingStore();
+
+  const handleChange = (event) => {
+    setSelectedSort(event.target.value);
+    setPriceSorting(event.target.value);
+  };
 
   return (
     <div>
-      <h1>Sortieren</h1>
-      <button onClick={() => setPriceSorting("up")}>Up</button>
-      <button onClick={() => setPriceSorting("down")}>Down</button>
+      <select value={selectedSort} onChange={handleChange}>
+        <option value="" disabled hidden>
+          Sortieren
+        </option>
+
+        <option value="up">Niedrigster Preis</option>
+        <option value="down">Höchster Preis</option>
+      </select>
     </div>
   );
 }
 
-export default PriceSorting;
+export default App;

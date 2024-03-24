@@ -29,15 +29,14 @@ function Basket() {
     <div className="basketContainer">
       <h1>WARENKORB</h1>
       <div className="basketProducts">
-        {basketProducts.map(
-          ({ titel, farbe, kategorie, lagerbestand, preis, anzahl }) => (
-            <BasketProduct
-              titel={titel}
-              lagerbestand={lagerbestand}
-              anzahl={anzahl}
-            />
-          )
-        )}
+        {basketProducts.map(({ titel, lagerbestand, preis, anzahl }) => (
+          <BasketProduct
+            titel={titel}
+            lagerbestand={lagerbestand}
+            anzahl={anzahl}
+            preis={preis}
+          />
+        ))}
       </div>
       <div className="basketSum">
         <h1>Summe {formatSum()}€</h1>

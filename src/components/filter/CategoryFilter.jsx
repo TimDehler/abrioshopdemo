@@ -22,31 +22,31 @@ function CategoryFilter() {
     <div>
       <h1>Kategorie</h1>
       <div>
-        <label htmlFor="A">A</label>
         <input
           id="A"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={selectedFilters.includes("A")}
         />
+        <label htmlFor="A">A</label>
       </div>
       <div>
-        <label htmlFor="B">B</label>
         <input
           id="B"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={selectedFilters.includes("B")}
         />
+        <label htmlFor="B">B</label>
       </div>
       <div>
-        <label htmlFor="C">C</label>
         <input
           id="C"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={selectedFilters.includes("C")}
         />
+        <label htmlFor="C">C</label>
       </div>
     </div>
   );

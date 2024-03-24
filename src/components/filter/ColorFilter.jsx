@@ -22,31 +22,31 @@ function ColorFilter() {
     <div>
       <h1>Farben</h1>
       <div>
-        <label htmlFor="Rot">R</label>
         <input
           id="Rot"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={selectedFilters.includes("Rot")}
         />
+        <label htmlFor="Rot">R</label>
       </div>
       <div>
-        <label htmlFor="Grün">G</label>
         <input
           id="Grün"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={selectedFilters.includes("Grün")}
         />
+        <label htmlFor="Grün">G</label>
       </div>
       <div>
-        <label htmlFor="Blau">B</label>
         <input
           id="Blau"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={selectedFilters.includes("Blau")}
         />
+        <label htmlFor="Blau">B</label>
       </div>
     </div>
   );
