@@ -28,7 +28,7 @@ class Product {
   }
 
   setLagerbestand(lagerbestand) {
-    if (lagerbestand > 0) this.lagerbestand = lagerbestand;
+    this.lagerbestand = lagerbestand;
   }
 }
 export default Product;
