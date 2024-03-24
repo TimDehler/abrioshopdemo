@@ -74,7 +74,6 @@
 }
 
 .productImage {
-  width: 100px;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -104,14 +103,13 @@
 
 .productViewContainer {
   width: 100vw;
+  height: 69vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   justify-content: center;
   align-items: center;
   padding: 1rem 15rem 1rem 15rem;
-  height: 69%;
-  max-height: 69%;
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -139,7 +137,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  height: 17%;
+  height: 17vh;
   padding: 2rem;
   background: linear-gradient(to bottom, rgb(41, 187, 72), rgb(25, 100, 41));
   color: rgb(255, 255, 255);
@@ -201,7 +199,7 @@
 }
 
 .filterContainer {
-  height: 7%;
+  height: 7vh;
   background: linear-gradient(to bottom, rgb(36, 150, 61), rgb(41, 187, 72));
   color: white;
   text-shadow: 2px 2px rgb(93, 80, 80);
@@ -243,7 +241,7 @@ input[type="checkbox"] {
 }
 
 header {
-  height: 7%;
+  height: 7vh;
   padding: 1.5rem 2rem 0rem 2rem;
   color: white;
   background: linear-gradient(to bottom, rgb(25, 100, 41), rgb(36, 150, 61));
