@@ -19,16 +19,16 @@ class Product {
     return this.kategorie;
   }
 
-  getLagerbestand() {
-    return this.lagerbestand;
-  }
-
   getPreis() {
     return this.preis;
   }
 
+  getLagerbestand() {
+    return this.lagerbestand;
+  }
+
   setLagerbestand(lagerbestand) {
-    this.lagerbestand = lagerbestand;
+    if (lagerbestand > 0) this.lagerbestand = lagerbestand;
   }
 }
 export default Product;

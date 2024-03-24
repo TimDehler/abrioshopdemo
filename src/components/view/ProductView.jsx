@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Product from "../product/Product";
 import { useProductStore } from "../../store/store";
 
@@ -8,13 +8,6 @@ function ProductView({ shouldShow, threshold, viewportWidth }) {
   const filteredProducts = products.filter(
     (product) => product.getLagerbestand() > 0
   );
-
-  // useEffect(() => {
-  //   console.log(threshold);
-  //   console.log(viewPortWidth);
-  //   console.log(`First test: ${viewportWidth < threshold}`);
-  //   console.log(`Second test: ${shouldShow}`);
-  // }, [shouldShow, threshold, viewportWidth]);
 
   return (
     <>

@@ -75,9 +75,11 @@ export const useSortingStore = create((set) => ({
 
 useFilterStore.subscribe(
   ({ categoryFilter, colorFilter }) => {
+    const { priceSorting } = useSortingStore.getState();
     const sortedAndFilteredProducts = sortAndFilterProducts(
       categoryFilter,
-      colorFilter
+      colorFilter,
+      priceSorting
     );
     useProductStore.setState({ products: sortedAndFilteredProducts });
   },
@@ -87,6 +89,7 @@ useFilterStore.subscribe(
 useSortingStore.subscribe(
   ({ priceSorting }) => {
     const { categoryFilter, colorFilter } = useFilterStore.getState();
+    console.log(`useSortingStore.subscribe: ${priceSorting}`);
     const sortedAndFilteredProducts = sortAndFilterProducts(
       categoryFilter,
       colorFilter,
@@ -111,6 +114,8 @@ const sortAndFilterProducts = (categoryFilter, colorFilter, priceSorting) => {
       colorFilter.includes(product.getFarbe())
     );
   }
+
+  console.log(priceSorting);
 
   if (priceSorting === "up") {
     return [...filteredProducts].sort((a, b) => a.getPreis() - b.getPreis());
