@@ -26,9 +26,10 @@
   padding: 1.2rem;
   background-color: rgba(240, 240, 240, 1);
   border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.productContainer:not(.productQuantity):not(.productImage) * {
+.productContainer:not(.productImage) * {
   width: 100%;
 }
 
@@ -36,23 +37,39 @@
   text-align: center;
 }
 
-.productQuantity {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: nowrap;
-  padding: 0.5rem 0.2rem 0.5rem 0.2rem;
-}
-
 .productQuantityManipulation {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
+  margin-bottom: 0.5rem;
+  border: 2px outset black;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
 }
 
-.productQuantity input {
-  text-align: center;
+.productQuantityManipulation button {
+  border-top: none;
+  border-bottom: none;
+}
+
+.productQuantityManipulation button:hover {
+  cursor: pointer;
+}
+
+.leftButton {
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-right: 2px outset black;
+  border-left: none;
+}
+
+.rightButton {
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-right: 2px outset black;
+  border-right: none;
 }
 
 .productImage {
@@ -61,6 +78,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 18px;
+}
+
+.productTitle {
+  margin-bottom: 1rem;
+}
+
+.addToBasket {
+  border-radius: 18px;
+  transition: all 0.6s ease;
+  padding: 0.5rem 0.1rem 0.5rem 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.addToBasket:hover {
+  cursor: pointer;
+  scale: 1.05;
 }
 
 .productViewContainer {
@@ -70,7 +108,7 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  padding: 1rem 10rem 1rem 10rem;
+  padding: 1rem 15rem 1rem 15rem;
   height: 65%;
   max-height: 65%;
   overflow-x: scroll;
@@ -82,9 +120,16 @@
   display: none;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
   .productViewContainer {
     grid-template-columns: repeat(1, 1fr);
+    padding: 1rem 11rem 1rem 11rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .productViewContainer {
+    padding: 1rem 3rem 1rem 3rem;
   }
 }
 
@@ -94,8 +139,9 @@
   flex-wrap: wrap;
   height: 20%;
   padding: 2rem;
-  background-color: rgb(25, 100, 41);
+  background: linear-gradient(to bottom, rgb(41, 187, 72), rgb(25, 100, 41));
   color: rgb(255, 255, 255);
+  text-shadow: 2px 2px rgb(93, 80, 80);
 }
 
 .basketContainer h1 {
@@ -127,7 +173,7 @@
   justify-content: flex-end;
   align-items: flex-end;
   text-align: end;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
   padding-right: 0.5rem;
 }
 
@@ -152,11 +198,62 @@
   scale: 1.2;
 }
 
-.headerContainer {
-  height: 15%;
-  background-color: rgb(25, 100, 41);
-  color: rgb(255, 255, 255);
+.filterContainer {
+  height: 8%;
+  background: linear-gradient(to bottom, rgb(36, 150, 61), rgb(41, 187, 72));
+  color: white;
+  text-shadow: 2px 2px rgb(93, 80, 80);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 0rem 2rem 0rem 2rem;
+}
+
+.sortSelect {
+  border-radius: 10px;
+  padding: 0.4rem;
+  min-width: max-content;
+}
+
+.sortSelect,
+.sortSelect option {
+  font-size: 16px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.filters label {
+  font-size: 18px;
+}
+
+input[type="checkbox"] {
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -moz-transform: scale(1.5); /* Firefox */
+  -ms-transform: scale(1.5); /* IE 9 */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5); /* General */
+}
+
+header {
+  max-height: 7%;
+  padding: 1.5rem 2rem 0rem 2rem;
+  color: white;
+  background: linear-gradient(to bottom, rgb(25, 100, 41), rgb(36, 150, 61));
+  text-shadow: 2px 2px rgb(93, 80, 80);
+}
+
+.pageHeading {
+  max-width: max-content;
+  border-bottom: 2px solid white;
+  padding-bottom: 0.1em;
+}
+
+/* Header breakpoint for filters */
+@media screen and (max-width: 650) {
 }

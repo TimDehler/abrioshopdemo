@@ -21,7 +21,7 @@ function ColorFilter() {
   return (
     <div>
       <h1>Farben</h1>
-      <div>
+      <div className="filters">
         <input
           id="Rot"
           type="checkbox"
@@ -29,8 +29,6 @@ function ColorFilter() {
           checked={selectedFilters.includes("Rot")}
         />
         <label htmlFor="Rot">R</label>
-      </div>
-      <div>
         <input
           id="Grün"
           type="checkbox"
@@ -38,8 +36,6 @@ function ColorFilter() {
           checked={selectedFilters.includes("Grün")}
         />
         <label htmlFor="Grün">G</label>
-      </div>
-      <div>
         <input
           id="Blau"
           type="checkbox"

@@ -12,7 +12,11 @@ function App() {
 
   return (
     <div>
-      <select value={selectedSort} onChange={handleChange}>
+      <select
+        className="sortSelect"
+        value={selectedSort}
+        onChange={handleChange}
+      >
         <option value="" disabled hidden>
           Sortieren
         </option>

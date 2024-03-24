@@ -21,7 +21,7 @@ function CategoryFilter() {
   return (
     <div>
       <h1>Kategorie</h1>
-      <div>
+      <div className="filters">
         <input
           id="A"
           type="checkbox"
@@ -29,8 +29,6 @@ function CategoryFilter() {
           checked={selectedFilters.includes("A")}
         />
         <label htmlFor="A">A</label>
-      </div>
-      <div>
         <input
           id="B"
           type="checkbox"
@@ -38,8 +36,6 @@ function CategoryFilter() {
           checked={selectedFilters.includes("B")}
         />
         <label htmlFor="B">B</label>
-      </div>
-      <div>
         <input
           id="C"
           type="checkbox"

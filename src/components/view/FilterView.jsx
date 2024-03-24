@@ -3,10 +3,9 @@ import CategoryFilter from "../filter/CategoryFilter";
 import ColorFilter from "../filter/ColorFilter";
 import PriceSorting from "../sorting/PriceSorting";
 
-function Header() {
+function FilterView() {
   return (
-    <div className="headerContainer">
-      <h1>Produkt</h1>
+    <div className="filterContainer">
       <CategoryFilter />
       <ColorFilter />
       <PriceSorting />
@@ -14,4 +13,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default FilterView;
