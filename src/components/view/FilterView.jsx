@@ -3,13 +3,17 @@ import CategoryFilter from "../filter/CategoryFilter";
 import ColorFilter from "../filter/ColorFilter";
 import PriceSorting from "../sorting/PriceSorting";
 
-function FilterView() {
+function FilterView({ shouldShow, threshold, viewportWidth }) {
   return (
-    <div className="filterContainer">
-      <CategoryFilter />
-      <ColorFilter />
-      <PriceSorting />
-    </div>
+    <>
+      {shouldShow || viewportWidth > threshold ? (
+        <div className="filterContainer">
+          <CategoryFilter />
+          <ColorFilter />
+          <PriceSorting />
+        </div>
+      ) : null}
+    </>
   );
 }
 
