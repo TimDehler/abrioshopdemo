@@ -1,9 +1,16 @@
-import { fetchData, postData } from "../util/fetchData";
+import {
+  fetchUserDependentData,
+  postUserDependentData,
+} from "../util/fetchData";
 import BasketProduct from "../classes/BasketProduct";
+import { getCookie } from "../util/cookie";
 
 export const getBasketProducts = async () => {
   const endpoint = "getBasketProducts";
-  const basketProducts = await fetchData(endpoint);
+  const basketProducts = await fetchUserDependentData(
+    endpoint,
+    getCookie("user")
+  );
   return basketProducts.map(
     (basketProduct) =>
       new BasketProduct(
@@ -19,12 +26,16 @@ export const getBasketProducts = async () => {
 
 export const storeBasketProducts = async (data) => {
   const endpoint = "storeBasketProducts";
-  const response = await postData(endpoint, data);
+  const response = await postUserDependentData(
+    endpoint,
+    data,
+    getCookie("user")
+  );
   console.log(response);
 };
 
 export const deleteStoredBasket = async () => {
   const endpoint = "deleteStoredBasket";
-  const response = await fetchData(endpoint);
+  const response = await fetchUserDependentData(endpoint, getCookie("user"));
   console.log(response);
 };

@@ -136,8 +136,6 @@ const sortAndFilterProducts = (categoryFilter, colorFilter, priceSorting) => {
     );
   }
 
-  console.log(priceSorting);
-
   if (priceSorting === "up") {
     return [...filteredProducts].sort((a, b) => a.getPreis() - b.getPreis());
   }

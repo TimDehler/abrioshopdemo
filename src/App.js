@@ -9,6 +9,8 @@ import {
   storeBasketProducts,
   deleteStoredBasket,
 } from "./api/basketProductController";
+import { getCookie, setCookie } from "./util/cookie";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const threshold = 580;
@@ -18,6 +20,10 @@ function App() {
   const { fetchProducts, isProductsLoaded } = useProductStore();
   const { basketProducts, fetchBasketProducts, initialCheckDone } =
     useBasketStore();
+
+  useEffect(() => {
+    if (getCookie("user") === "") setCookie("user", uuidv4());
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
