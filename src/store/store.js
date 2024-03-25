@@ -3,6 +3,7 @@ import { getAllProducts } from "../api/productController";
 import { getBasketProducts } from "../api/basketProductController";
 
 export const useProductStore = create((set) => ({
+  initialProducts: [],
   products: [],
   isProductsLoaded: false,
   updateProducts: (titel, anzahl) => {
@@ -22,7 +23,7 @@ export const useProductStore = create((set) => ({
   fetchProducts: async () => {
     try {
       const products = await getAllProducts();
-      set({ products, isProductsLoaded: true });
+      set({ products, isProductsLoaded: true, initialProducts: products });
     } catch (error) {
       console.error("Error fetching products:", error);
     }
@@ -120,8 +121,8 @@ useSortingStore.subscribe(
 );
 
 const sortAndFilterProducts = (categoryFilter, colorFilter, priceSorting) => {
-  const { products } = useProductStore.getState();
-  let filteredProducts = products;
+  const { initialProducts } = useProductStore.getState();
+  let filteredProducts = initialProducts;
 
   if (categoryFilter.length > 0) {
     filteredProducts = filteredProducts.filter((product) =>
