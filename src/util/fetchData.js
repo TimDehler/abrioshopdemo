@@ -1,8 +1,10 @@
-import { get, post } from "axios";
+import axios from "axios";
 
 export const fetchData = async (resource) => {
   try {
-    const response = await get(`http://localhost:3001/api/v1/${resource}`);
+    const response = await axios.get(
+      `http://localhost:3001/api/v1/${resource}`
+    );
     return response.data;
   } catch (error) {
     console.error(`Error fetching ${resource}:`, error);
@@ -12,8 +14,11 @@ export const fetchData = async (resource) => {
 
 export const postData = async (resource, data) => {
   try {
-    const response = await post(`/api/v1/${resource}`, data);
-    return response.data;
+    const response = await axios.post(
+      `http://localhost:3001/api/v1/${resource}`,
+      data
+    );
+    console.log(response.data);
   } catch (error) {
     console.error(`Error posting data to ${resource}:`, error);
     throw error;

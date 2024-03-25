@@ -1,4 +1,4 @@
-import { fetchData, postData } from "../controllers/dataController";
+import { fetchData, postData } from "../util/fetchData";
 import Product from "../classes/Product";
 
 export const getAllProducts = async () => {

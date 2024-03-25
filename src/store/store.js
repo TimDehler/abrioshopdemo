@@ -1,8 +1,10 @@
 import create from "zustand";
-import { getProducts } from "../util/TestProducts";
+import { getAllProducts } from "../api/productController";
+import { getBasketProducts } from "../api/basketProductController";
 
 export const useProductStore = create((set) => ({
-  products: getProducts(),
+  products: [],
+  isProductsLoaded: false,
   updateProducts: (titel, anzahl) => {
     set((state) => {
       const productIndex = state.products.findIndex(
@@ -17,10 +19,19 @@ export const useProductStore = create((set) => ({
       }
     });
   },
+  fetchProducts: async () => {
+    try {
+      const products = await getAllProducts();
+      set({ products, isProductsLoaded: true });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  },
 }));
 
 export const useBasketStore = create((set) => ({
   basketProducts: [],
+  initialCheckDone: false,
   addBasketProduct: (newBasketProduct) => {
     set((state) => {
       const existingProductIndex = state.basketProducts.findIndex(
@@ -47,6 +58,14 @@ export const useBasketStore = create((set) => ({
         ),
       };
     });
+  },
+  fetchBasketProducts: async () => {
+    try {
+      const basketProducts = await getBasketProducts();
+      set({ basketProducts, initialCheckDone: true });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
   },
 }));
 
@@ -90,7 +109,6 @@ useFilterStore.subscribe(
 useSortingStore.subscribe(
   ({ priceSorting }) => {
     const { categoryFilter, colorFilter } = useFilterStore.getState();
-    console.log(`useSortingStore.subscribe: ${priceSorting}`);
     const sortedAndFilteredProducts = sortAndFilterProducts(
       categoryFilter,
       colorFilter,
@@ -102,7 +120,8 @@ useSortingStore.subscribe(
 );
 
 const sortAndFilterProducts = (categoryFilter, colorFilter, priceSorting) => {
-  let filteredProducts = getProducts();
+  const { products } = useProductStore.getState();
+  let filteredProducts = products;
 
   if (categoryFilter.length > 0) {
     filteredProducts = filteredProducts.filter((product) =>

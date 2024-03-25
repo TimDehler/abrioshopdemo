@@ -1,4 +1,4 @@
-import fetchData, { postData } from "../util/fetchData";
+import { fetchData, postData } from "../util/fetchData";
 import BasketProduct from "../classes/BasketProduct";
 
 export const getBasketProducts = async () => {
@@ -11,7 +11,8 @@ export const getBasketProducts = async () => {
         basketProduct.farbe,
         basketProduct.kategorie,
         basketProduct.lagerbestand,
-        basketProduct.preis
+        basketProduct.preis,
+        basketProduct.anzahl
       )
   );
 };
@@ -19,5 +20,11 @@ export const getBasketProducts = async () => {
 export const storeBasketProducts = async (data) => {
   const endpoint = "storeBasketProducts";
   const response = await postData(endpoint, data);
-  return response;
+  console.log(response);
+};
+
+export const deleteStoredBasket = async () => {
+  const endpoint = "deleteStoredBasket";
+  const response = await fetchData(endpoint);
+  console.log(response);
 };
