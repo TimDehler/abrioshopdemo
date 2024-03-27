@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getColor } from "../../util/ColorConverter";
+import { getColor } from "../../util/colorConverter";
 import { useBasketStore, useProductStore } from "../../store/store";
 import BasketProduct from "../../classes/BasketProduct";
 
